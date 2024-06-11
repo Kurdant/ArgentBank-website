@@ -1,0 +1,69 @@
+@media (min-width: 920px) {
+    #homeBanner {
+      height: 400px !important;
+      background-position: 0% 33%;
+    }
+  }
+
+  html{
+    color: #2c3e50;;
+  }
+
+#homeBanner{
+    background-image: url(../../../assets/bank-tree.webp);
+    background-position: 0 -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 300px;
+}
+
+@media (min-width: 920px) {
+    .homeBannerBlock {
+      position: absolute !important;
+      top: 50px;
+      right: 50px;
+      width: 300px;
+      margin: 2rem !important;
+    }
+  }
+
+  .text{
+    color: #2c3e50;
+  }
+
+.homeBannerBlock{
+    position: relative;
+    top: 2rem;
+    width: 200px;
+    background: white;
+    padding: 2rem;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.sr-only{
+border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+.homeBannerBlock .subtitle {
+font-weight: bold;
+  font-size: 1rem;
+  color :#2c3e50;
+  margin: 0;
+}
+
+@media (min-width: 920px) {
+    .homeBannerBlock .subtitle {
+      font-size: 1.5rem;
+    }
+  }

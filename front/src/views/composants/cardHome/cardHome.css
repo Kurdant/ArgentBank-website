@@ -1,0 +1,36 @@
+.CardHomeCss{
+    display: flex;
+}
+
+.CardHomeCss p{
+  color: #2c3e50;
+}
+
+
+.feature-icon {
+    width: 100px;
+    border: 10px solid #00bc77;
+    border-radius: 50%;
+    padding: 1rem;
+  }
+  
+  .feature-item {
+    flex: 1;
+    padding: 2.5rem;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature-item-title {
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .feature-item p{
+    text-align: center;
+  }

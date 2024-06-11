@@ -1,0 +1,7 @@
+.bg-dark{
+    background-color: #12002b;;
+}
+
+.bg-dark h1, p{
+    color: white;
+}

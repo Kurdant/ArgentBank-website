@@ -3,8 +3,29 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
+    background-color: white;
 }
-
+.HeaderEnfant{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.logoSignIn{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.logoSignIn a{
+    text-decoration: none;
+}
+.logoSignIn i{
+    text-decoration: none;
+    margin-right: 5px;
+}
+#HeaderParent a {
+font-weight: bold;
+  color: #2c3e50;
+}
 .argentBankLogo{
     width: 200px;
 }

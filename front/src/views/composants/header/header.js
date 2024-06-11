@@ -7,9 +7,8 @@ export function Header() {
       <div>
         <img src={argentBankLogo} alt='argentBankLogo' className='argentBankLogo'/>
       </div>
-      <div>
-        <div>Logo</div>
-        <div>Sign In</div>
+      <div className='HeaderEnfant'>
+        <div className='logoSignIn'><a href='/sign-in'><i class="fa-solid fa-circle-user"></i>Sign In</a></div>
       </div>
     </div>
   );
