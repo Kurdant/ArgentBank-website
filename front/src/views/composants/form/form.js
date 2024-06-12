@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../../../userSlice';
 import './form.css';
 
 function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const user = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    console.log('isAuthenticated:', isAuthenticated);
+    console.log('user:', user);
+  }, [isAuthenticated, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,16 +25,35 @@ function Form() {
         email: email,
         password: password,
       });
-      console.log(response.data.body.token);
-      localStorage.setItem('token', response.data.body.token);
-      console.log(email, password);
-      if  (response.status = "200") {
-        path="/user"
+
+      if (response.status === 200) {
+        const userData = {
+          email: email,
+          token: response.data.body.token,
+        };
+
+        localStorage.setItem('token', response.data.body.token);
+        if (rememberMe) {
+          localStorage.setItem('user', JSON.stringify(userData));
+        } else {
+          localStorage.removeItem('user');
+        }
+        dispatch(setUser(userData)); // Dispatcher l'action pour mettre à jour le store Redux
+        console.log('Form submitted:', email, password);
+      } else {
+        console.log("Erreur lors de la connexion");
       }
     } catch (error) {
       console.error('Error logging in:', error);
     }
   };
+
+  // Redirection si déjà authentifié
+  if (isAuthenticated) {
+    console.log('User is already authenticated, redirecting...');
+    window.location.href = "/user";
+    return null;
+  }
 
   return (
     <main className="main bg-dark">
@@ -51,7 +80,12 @@ function Form() {
             />
           </div>
           <div className="input-remember">
-            <input type="checkbox" id="remember-me" />
+            <input
+              type="checkbox"
+              id="remember-me"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
             <label htmlFor="remember-me">Remember me</label>
           </div>
           <button type="submit" className="sign-in-button">Sign In</button>

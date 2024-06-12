@@ -2,13 +2,13 @@ import '../cardHome/cardHome.css'
 
 export function CardHome(props) {
     return(
-        <div class="feature-item">
+        <div className="feature-item">
           <img
             src={props.img}
             alt={props.alt}
-            class="feature-icon"
+            className="feature-icon"
           />
-          <h3 class="feature-item-title">{props.title}</h3>
+          <h3 className="feature-item-title">{props.title}</h3>
           <p>
           {props.texte}
           </p>

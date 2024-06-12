@@ -1,6 +1,11 @@
+.account p{
+  color: #2c3e50 !important; 
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
 @media (min-width: 720px) {
     .account {
-      flex-direction: row;
+      flex-direction: row !important;
     }
   }
   .account {
@@ -43,7 +48,7 @@
 
   @media (min-width: 720px) {
     .account-content-wrapper.cta {
-      flex: 0;
+      flex: 0 !important;
     }
   }
 
@@ -51,5 +56,3 @@
     width: 100%;
     flex: 1;
   }
-
-  

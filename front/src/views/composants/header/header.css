@@ -10,15 +10,15 @@
     justify-content: center;
     flex-direction: column;
 }
-.logoSignIn{
+.style_connect{
     display: flex;
     justify-content: center;
     text-decoration: none;
 }
-.logoSignIn a{
+.style_connect a{
     text-decoration: none;
 }
-.logoSignIn i{
+.style_connect i{
     text-decoration: none;
     margin-right: 5px;
 }
@@ -28,4 +28,10 @@ font-weight: bold;
 }
 .argentBankLogo{
     width: 200px;
+}
+
+
+
+.Connected{
+    display: none;
 }

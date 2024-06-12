@@ -5,3 +5,7 @@
 .bg-dark h1, p{
     color: white;
 }
+
+.ParentButton{
+    margin-bottom: 35px;
+}
