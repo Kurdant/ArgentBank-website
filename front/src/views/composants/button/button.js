@@ -1,12 +1,12 @@
 import React from "react";
 import './button.css'
 
-function ButtonEditName(props) {
+function Button(props) {
     return (
     <div className="ParentButton">
-        <button className="button" type="button">{props.text}</button>
+        <button className="button" type={props.type} onClick={props.onClick}>{props.text}</button>
     </div>
     )
 }
 
-export default ButtonEditName;
+export default Button;
