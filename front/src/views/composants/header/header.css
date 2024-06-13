@@ -8,7 +8,9 @@
 .HeaderEnfant{
     display: flex;
     justify-content: center;
-    flex-direction: column;
+}
+.Connected{
+    margin-right: 10px;
 }
 .style_connect{
     display: flex;
@@ -28,10 +30,4 @@ font-weight: bold;
 }
 .argentBankLogo{
     width: 200px;
-}
-
-
-
-.Connected{
-    display: none;
 }

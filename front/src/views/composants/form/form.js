@@ -10,16 +10,13 @@ function Form() {
   const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
-  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     console.log('isAuthenticated:', isAuthenticated);
-    console.log('user:', user);
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post('http://localhost:3001/api/v1/user/login', {
         email: email,
@@ -27,18 +24,26 @@ function Form() {
       });
 
       if (response.status === 200) {
-        const userData = {
-          email: email,
-          token: response.data.body.token,
-        };
-
-        localStorage.setItem('token', response.data.body.token);
+        const token = response.data.body.token;
+        sessionStorage.setItem('token', token);
         if (rememberMe) {
-          localStorage.setItem('user', JSON.stringify(userData));
-        } else {
-          localStorage.removeItem('user');
+          localStorage.setItem('token', token);
         }
-        dispatch(setUser(userData)); // Dispatcher l'action pour mettre à jour le store Redux
+        const profileResponse = await axios.post('http://localhost:3001/api/v1/user/profile', {}, {
+          headers: {
+            'accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        if (profileResponse.status === 200) {
+          const userData = profileResponse.data.body;
+          userData.token = token;
+          sessionStorage.setItem('user', JSON.stringify(userData));
+          if (rememberMe) {
+            localStorage.setItem('user', JSON.stringify(userData));
+          }
+          dispatch(setUser(userData));
+        }
         console.log('Form submitted:', email, password);
       } else {
         console.log("Erreur lors de la connexion");
@@ -48,7 +53,6 @@ function Form() {
     }
   };
 
-  // Redirection si déjà authentifié
   if (isAuthenticated) {
     console.log('User is already authenticated, redirecting...');
     window.location.href = "/user";

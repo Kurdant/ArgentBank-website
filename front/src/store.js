@@ -1,3 +1,4 @@
+// store.js
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer, { setUser } from './userSlice';
 
@@ -7,10 +8,13 @@ const store = configureStore({
   },
 });
 
-// Restaurer l'état d'authentification depuis le localStorage
-const storedUser = localStorage.getItem('user');
+const getStoredUser = () => {
+  return JSON.parse(localStorage.getItem('user')) || JSON.parse(sessionStorage.getItem('user'));
+};
+
+const storedUser = getStoredUser();
 if (storedUser) {
-  store.dispatch(setUser(JSON.parse(storedUser)));
+  store.dispatch(setUser(storedUser));
 }
 
 export default store;

@@ -7,24 +7,28 @@ import { logout } from '../../../userSlice';
 export function Header() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
-  const user = useSelector((state) => state.user.user);
+  const userName = useSelector((state) => state.user.userName);
 
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
     window.location.href = '/sign-in';
   };
 
   return (
     <div id="HeaderParent">
       <div>
-        <img src={argentBankLogo} alt='argentBankLogo' className='argentBankLogo' />
+        <a href="/">
+        <img src={argentBankLogo} alt='argentBankLogo' className='argentBankLogo'/>
+        </a>
       </div>
       <div className='HeaderEnfant'>
         {isAuthenticated ? (
           <>
-            <div className='Connected style_connect'><i className="fa-solid fa-circle-user"></i> {user.userName}</div>
+            <div className='Connected style_connect'><i className="fa-solid fa-circle-user"></i><a href='/user'> {userName ? userName : 'User'}</a></div>
             <div className='SignOut style_connect' onClick={handleLogout}><i className="fa-solid fa-sign-out-alt"></i> Log Out</div>
           </>
         ) : (
