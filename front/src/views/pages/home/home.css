@@ -1,7 +1,7 @@
 @media (min-width: 920px) {
     #homeBanner {
       height: 400px !important;
-      background-position: 0% 33%;
+      background-position: 0% 33% !important;
     }
   }
 
@@ -21,9 +21,9 @@
 @media (min-width: 920px) {
     .homeBannerBlock {
       position: absolute !important;
-      top: 50px;
+      top: 50px !important;
       right: 50px;
-      width: 300px;
+      width: 300px !important;
       margin: 2rem !important;
     }
   }

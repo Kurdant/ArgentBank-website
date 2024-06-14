@@ -1,0 +1,15 @@
+.inputtest{
+    width: 250px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.ParentButton{
+    margin: 15px;
+}
