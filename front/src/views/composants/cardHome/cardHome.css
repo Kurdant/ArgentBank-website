@@ -1,11 +1,30 @@
+
 .CardHomeCss{
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 920px) {
+  .CardHomeCss{
     display: flex;
+    flex-direction: row;
+}
 }
 
 .CardHomeCss p{
   color: #2c3e50;
 }
 
+@media (min-width: 920px) {
+  .feature-item {
+    flex: 1;
+    padding: 2.5rem;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .feature-icon {
     width: 100px;
@@ -17,7 +36,7 @@
   .feature-item {
     flex: 1;
     padding: 2.5rem;
-    width: 33%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

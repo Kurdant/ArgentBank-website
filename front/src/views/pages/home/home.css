@@ -9,8 +9,8 @@
     color: #2c3e50;;
   }
 
-#homeBanner{
-    background-image: url(../../../assets/bank-tree.webp);
+  #homeBanner{
+    background-image: url(../../../assets/bank-tree-mobile.webp);
     background-position: 0 -50px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,6 +26,15 @@
       width: 300px !important;
       margin: 2rem !important;
     }
+    #homeBanner{
+      background-image: url(../../../assets/bank-tree.webp);
+      background-position: 0 -50px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      height: 300px;
+  }
+
   }
 
   .text{

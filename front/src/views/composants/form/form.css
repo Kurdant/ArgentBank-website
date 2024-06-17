@@ -10,6 +10,7 @@
 
   .bg-dark {
     background-color: #12002b;
+    min-height: 100vh;
   }
 
   .sign-in-button {

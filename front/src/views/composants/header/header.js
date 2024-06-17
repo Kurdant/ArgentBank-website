@@ -15,7 +15,7 @@ export function Header() {
     localStorage.removeItem('user');
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
-    window.location.href = '/sign-in';
+    window.location.href = "/";
   };
 
   return (
