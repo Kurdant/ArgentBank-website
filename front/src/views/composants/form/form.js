@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../../userSlice';
+import { useNavigate } from "react-router-dom";
+import { checkAuth } from '../utils/auth';
 import './form.css';
 
 function Form() {
@@ -10,10 +12,21 @@ function Form() {
   const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('isAuthenticated:', isAuthenticated);
-  }, [isAuthenticated]);
+    const storedUser = localStorage.getItem('userMail');
+    if (storedUser) {
+      setEmail(JSON.parse(storedUser));
+      setRememberMe(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/user");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,9 +39,6 @@ function Form() {
       if (response.status === 200) {
         const token = response.data.body.token;
         sessionStorage.setItem('token', token);
-        if (rememberMe) {
-          localStorage.setItem('token', token);
-        }
         const profileResponse = await axios.post('http://localhost:3001/api/v1/user/profile', {}, {
           headers: {
             'accept': 'application/json',
@@ -37,14 +47,17 @@ function Form() {
         });
         if (profileResponse.status === 200) {
           const userData = profileResponse.data.body;
-          userData.token = token;
-          sessionStorage.setItem('user', JSON.stringify(userData));
+          const userMail = profileResponse.data.body.email;
+          if (!rememberMe) {
+            localStorage.removeItem('userMail')
+            sessionStorage.setItem('user', JSON.stringify(userData));
+          }
           if (rememberMe) {
-            localStorage.setItem('user', JSON.stringify(userData));
+            localStorage.setItem('userMail', JSON.stringify(userMail));
+            sessionStorage.setItem('user', JSON.stringify(userData));
           }
           dispatch(setUser(userData));
         }
-        console.log('Form submitted:', email, password);
       } else {
         console.log("Erreur lors de la connexion");
       }
@@ -52,12 +65,6 @@ function Form() {
       console.error('Error logging in:', error);
     }
   };
-
-  if (isAuthenticated) {
-    console.log('User is already authenticated, redirecting...');
-    window.location.href = "/user";
-    return null;
-  }
 
   return (
     <main className="main bg-dark">

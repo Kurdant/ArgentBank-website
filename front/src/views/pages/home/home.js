@@ -9,29 +9,54 @@ import Footer from '../../composants/footer/footer.js';
 
 
 function Home() {
+  const CardHomeTableau = [
+    {
+      title: "You are our #1 priority",
+      texte: "Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes.",
+      img: IconChat,
+      alt: "iconChat"
+    },
+    {
+      title: "More savings means higher rates",
+      texte: "The more you save with us, the higher your interest rate will be!",
+      img: IconMoney,
+      alt: "iconMoney"
+    },
+    {
+      title: "Security you can trust",
+      texte: "We use top of the line encryption to make sure your data and money is always safe.",
+      img: IconSecurity,
+      alt: "iconSecurity"
+    }
+  ];
+
   return (
     <div className="App">
-        <Header></Header>
-        <div id='homeBanner'>
-            {/* banner mobile */}
-            <div className='homeBannerBlock'>
-                <h2 className="sr-only">Promoted Content</h2>
-                <p className="subtitle">No fees.</p>
-                <p className="subtitle">No minimum deposit.</p>
-                <p className="subtitle">High interest rates.</p>
-                <p className="text">Open a savings account with Argent Bank today!</p>
-            </div>
+      <Header></Header>
+      <div id='homeBanner'>
+        {/* banner mobile */}
+        <div className='homeBannerBlock'>
+          <h2 className="sr-only">Promoted Content</h2>
+          <p className="subtitle">No fees.</p>
+          <p className="subtitle">No minimum deposit.</p>
+          <p className="subtitle">High interest rates.</p>
+          <p className="text">Open a savings account with Argent Bank today!</p>
         </div>
-        <div className='CardHomeCss'>
-            <CardHome title="You are our #1 priority" texte="Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes. " img={IconChat} alt="iconChat"/>
-            <CardHome title="More savings means higher rates" texte="The more you save with us, the higher your interest rate will be! " img={IconMoney} alt="iconMoney"/>
-            <CardHome title="Security you can trust" texte="We use top of the line encryption to make sure your data and money is always safe. " img={IconSecurity} alt="iconSecurity"/>
-        </div>
-        {/* why not faire une boucle js */}
-        <Footer></Footer>
+      </div>
+      <div className='CardHomeCss'>
+        {CardHomeTableau.map((card, index) => (
+          <CardHome 
+            key={index} 
+            title={card.title} 
+            texte={card.texte} 
+            img={card.img} 
+            alt={card.alt} 
+          />
+        ))}
+      </div>
+      <Footer></Footer>
     </div>
   );
 }
-
 
 export default Home;
