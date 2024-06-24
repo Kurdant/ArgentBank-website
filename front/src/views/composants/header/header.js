@@ -20,13 +20,13 @@ export function Header() {
   };
 
   return (
-    <div id="HeaderParent">
+    <div id="Header">
       <div>
         <Link to="/">
-          <img src={argentBankLogo} alt='argentBankLogo' className='argentBankLogo'/>
+          <img src={argentBankLogo} alt='argentBankLogo' className='argent-bank-logo'/>
         </Link>
       </div>
-      <div className='HeaderEnfant'>
+      <div className='header-is-connected'>
         {isAuthenticated ? (
           <>
             <div className='Connected style_connect'><i className="fa-solid fa-circle-user"></i><Link to='/user'>{userName ? userName : 'User'}</Link></div>

@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonTransactions from "../buttonTransactions/buttonTransactions";
+import Button from "../button/button";
 import './cardMoney.css'
 
 function CardMoney(props) {
@@ -11,7 +12,7 @@ function CardMoney(props) {
             <p className="account-amount-description account-title">{props.balance}</p>
             </div>
             <div className="account-content-wrapper cta">
-            <ButtonTransactions text="View transactions"/>
+            <Button text="View transactions"/>
             </div>
         </section>
     )

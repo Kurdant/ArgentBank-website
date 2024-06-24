@@ -2,10 +2,14 @@
     background-color: #12002b;;
 }
 
-.bg-dark h1, p{
+.bg-dark h1, h2, p{
     color: white;
 }
 
 .ParentButton{
     margin-bottom: 35px;
+}
+
+.username-form{
+    margin-bottom: 30px
 }

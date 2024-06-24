@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { setUser } from '../../../userSlice.js';
 import { checkAuth } from '../../composants/utils/auth.js';
-import Modal from '../../composants/modal/modal.js';
+import UsernameForm from '../../composants/username-form/username-form';
 import Header from '../../composants/header/header.js';
 import Footer from '../../composants/footer/footer.js';
 import Button from '../../composants/button/button.js';
@@ -90,11 +90,11 @@ function User() {
   return (
     <div className="bg-dark">
       <Header />
-      <div>
+      <div className='username-form'>
         <h1>Welcome back<br />{firstName ? firstName : 'User'}</h1>
-      </div>
       <Button text='Edit Name' onClick={editName} />
-      {showModal && <Modal addPerson={addPerson} onClose={closeModal} />}
+      </div>
+      {showModal && <UsernameForm addPerson={addPerson} onClose={closeModal} />}
       {CardMoneyTab.map((card, index) => (
       <CardMoney 
             key={index} 

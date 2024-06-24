@@ -1,11 +1,11 @@
-#HeaderParent{
+#Header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
     background-color: white;
 }
-.HeaderEnfant{
+.header-is-connected{
     display: flex;
     justify-content: center;
 }
@@ -27,10 +27,10 @@
     text-decoration: none;
     margin-right: 5px;
 }
-#HeaderParent a {
+#Header a {
     font-weight: bold;
     color: #2c3e50;
 }
-.argentBankLogo{
+.argent-bank-logo{
     width: 200px;
 }

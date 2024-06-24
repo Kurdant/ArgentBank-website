@@ -1,15 +1,15 @@
-.inputtest{
+.username-input{
     width: 250px;
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-#buttons{
+.form-buttons{
     display: flex;
     justify-content: center;
     flex-direction: row-reverse;
 }
 
-.ParentButton{
+.button-container{
     margin: 15px;
 }

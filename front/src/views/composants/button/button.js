@@ -3,9 +3,9 @@ import './button.css'
 
 function Button(props) {
     return (
-    <div className="ParentButton">
-        <button className="button" type={props.type} onClick={props.onClick}>{props.text}</button>
-    </div>
+        <div className="button-container">
+            <button className="custom-button" type={props.type} onClick={props.onClick}>{props.text}</button>
+        </div>
     )
 }
 

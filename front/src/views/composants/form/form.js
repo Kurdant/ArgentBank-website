@@ -10,6 +10,7 @@ function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage(''); 
     try {
       const response = await axios.post('http://localhost:3001/api/v1/user/login', {
         email: email,
@@ -49,7 +51,7 @@ function Form() {
           const userData = profileResponse.data.body;
           const userMail = profileResponse.data.body.email;
           if (!rememberMe) {
-            localStorage.removeItem('userMail')
+            localStorage.removeItem('userMail');
             sessionStorage.setItem('user', JSON.stringify(userData));
           }
           if (rememberMe) {
@@ -59,9 +61,10 @@ function Form() {
           dispatch(setUser(userData));
         }
       } else {
-        console.log("Erreur lors de la connexion");
+        setErrorMessage("Erreur lors de la connexion");
       }
     } catch (error) {
+      setErrorMessage('Email ou mot de passe incorrect.');
       console.error('Error logging in:', error);
     }
   };
@@ -78,6 +81,7 @@ function Form() {
               type="text"
               id="username"
               value={email}
+              required 
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -87,6 +91,7 @@ function Form() {
               type="password"
               id="password"
               value={password}
+              required 
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -99,6 +104,7 @@ function Form() {
             />
             <label htmlFor="remember-me">Remember me</label>
           </div>
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
           <button type="submit" className="sign-in-button">Sign In</button>
         </form>
       </section>
