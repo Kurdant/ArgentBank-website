@@ -1,4 +1,4 @@
-import React from 'react';
+import { React } from 'react';
 import './home.css'
 import Header from '../../composants/header/header.js';
 import CardHome from '../../composants/cardHome/cardHome.js';
@@ -6,7 +6,7 @@ import IconChat from '../../../assets/icon-chat.png'
 import IconMoney from '../../../assets/icon-money.png'
 import IconSecurity from '../../../assets/icon-security.png'
 import Footer from '../../composants/footer/footer.js';
-import { checkAuth } from '../../composants/utils/auth.js';
+import { checkAuth } from '../../../ReduxToolkit/auth.js';
 
 
 function Home() {
@@ -35,7 +35,6 @@ function Home() {
     <div className="App home">
       <Header></Header>
       <div id='homeBanner'>
-        {/* banner mobile */}
         <div className='homeBannerBlock'>
           <h2 className="sr-only">Promoted Content</h2>
           <p className="subtitle">No fees.</p>

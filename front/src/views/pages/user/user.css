@@ -14,3 +14,7 @@
 .username-form{
     margin-bottom: 30px
 }
+
+.username-form h1{
+    color: white !important;
+}

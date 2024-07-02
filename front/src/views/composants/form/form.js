@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../../../userSlice';
+import { setUser } from '../../../ReduxToolkit/userSlice';
 import { useNavigate } from "react-router-dom";
-import { checkAuth } from '../utils/auth';
+import { checkAuth } from '../../../ReduxToolkit/auth';
 import './form.css';
 
 function Form() {

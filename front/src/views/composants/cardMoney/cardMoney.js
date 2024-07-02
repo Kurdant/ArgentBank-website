@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonTransactions from "../buttonTransactions/buttonTransactions";
 import Button from "../button/button";
 import './cardMoney.css'
 

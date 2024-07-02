@@ -16,6 +16,9 @@
 .Connected{
     margin-right: 10px;
 }
+.SignOut p:hover{
+    cursor: pointer;
+}
 .style_connect{
     display: flex;
     justify-content: center;
