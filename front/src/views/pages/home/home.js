@@ -32,7 +32,7 @@ function Home() {
   ];
 
   return (
-    <div className="App">
+    <div className="App home">
       <Header></Header>
       <div id='homeBanner'>
         {/* banner mobile */}

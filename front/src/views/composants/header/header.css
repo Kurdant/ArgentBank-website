@@ -4,6 +4,10 @@
     align-items: center;
     padding: 5px 20px;
     background-color: white;
+    height: 54px;
+}
+.header-logo{
+    margin-top: 4px;
 }
 .header-is-connected{
     display: flex;
@@ -16,6 +20,12 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
+    align-items: center;
+}
+.style_connect p{
+    font-weight: bold;
+    color: #2c3e50;
+    margin-right: 0.5rem;
 }
 .style_connect:hover{
     text-decoration: underline;

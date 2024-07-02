@@ -5,6 +5,10 @@
     }
   }
 
+  .home{
+    background-color: white !important;
+  }
+
   html{
     color: #2c3e50;;
   }

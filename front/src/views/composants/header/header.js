@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <div id="Header">
-      <div>
+      <div className='header-logo'>
         <Link to="/">
           <img src={argentBankLogo} alt='argentBankLogo' className='argent-bank-logo'/>
         </Link>
@@ -30,7 +30,7 @@ export function Header() {
         {isAuthenticated ? (
           <>
             <div className='Connected style_connect'><i className="fa-solid fa-circle-user"></i><Link to='/user'>{userName ? userName : 'User'}</Link></div>
-            <div className='SignOut style_connect' onClick={handleLogout}><i className="fa-solid fa-sign-out-alt"></i> Log Out</div>
+            <div className='SignOut style_connect' onClick={handleLogout}><i className="fa-solid fa-sign-out-alt"></i><p> Sign Out</p></div>
           </>
         ) : (
           <div className='SignIn style_connect'><Link to='/sign-in'><i className="fa-solid fa-circle-user"></i>Sign In</Link></div>

@@ -88,6 +88,7 @@ function User() {
   ];
 
   return (
+  <body>
     <div className="bg-dark">
       <Header />
       <div className='username-form'>
@@ -103,8 +104,9 @@ function User() {
             balance={card.balance} 
           />
         ))}
-      <Footer />
     </div>
+    <Footer />
+  </body>
   );
 }
 

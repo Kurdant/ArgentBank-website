@@ -1,7 +1,5 @@
     .main {
         flex: 1;
-        height : 68vh;
-        padding-top: 110px;
     }
 
     html {
@@ -10,10 +8,10 @@
 
   .bg-dark {
     background-color: #12002b;
-    min-height: 100vh;
   }
 
   .sign-in-button {
+    text-decoration: underline;
     display: block;
     width: 100%;
     padding: 8px;
@@ -23,18 +21,24 @@
     border-color: #00bc77;
     background-color: #00bc77;
     color: #fff;
+    border: 0;
   }
   
   .sign-in-content {
     box-sizing: border-box;
     background-color: white;
-    width: 350px;
+    width: 300px;
     margin: 0 auto;
+    margin-top: 3rem;
     padding: 2rem;
   }
   
   .sign-in-icon {
-    font-size: 5rem;
+    font-size: 14px;
+  }
+
+  h1{
+    color: #2c3e50 !important;
   }
   
   .input-remember {

@@ -12,7 +12,7 @@ function CardMoney(props) {
             <p className="account-amount-description account-title">{props.balance}</p>
             </div>
             <div className="account-content-wrapper cta">
-            <Button text="View transactions"/>
+            <Button text="View transactions" classnames="-big"/>
             </div>
         </section>
     )

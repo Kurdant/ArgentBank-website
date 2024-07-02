@@ -4,7 +4,7 @@ import './button.css'
 function Button(props) {
     return (
         <div className="button-container">
-            <button className="custom-button" type={props.type} onClick={props.onClick}>{props.text}</button>
+            <button className={`button ${props.classnames}`} type={props.type} onClick={props.onClick} >{props.text}</button>
         </div>
     )
 }

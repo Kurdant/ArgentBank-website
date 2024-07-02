@@ -8,9 +8,11 @@ import './sign-in.css'
 function SignIn() {
   return (
     <div className="App">
+      <body>
         <Header/>
         <Form/>
         <Footer/>
+        </body>
     </div>
   );
 }
