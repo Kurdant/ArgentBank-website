@@ -3,3 +3,9 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+.sign-in{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}

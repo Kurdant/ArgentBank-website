@@ -13,6 +13,10 @@
     color: #2c3e50;;
   }
 
+  .text{
+    font-size: 1.2rem;
+  }
+
   #homeBanner{
     background-image: url(../../../assets/bank-tree-mobile.webp);
     background-position: 0 -50px;
@@ -39,6 +43,7 @@
       right: 50px;
       width: 300px;
       margin: 2rem;
+      height: 148px;
     }
     #homeBanner{
       background-image: url(../../../assets/bank-tree.webp);

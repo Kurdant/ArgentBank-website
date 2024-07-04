@@ -3,9 +3,8 @@ import { logout } from "./userSlice";
 export const checkAuth = (dispatch, navigate) => {
   const token = sessionStorage.getItem('token');
   const user = sessionStorage.getItem('user');
-  const currentPath = window.location.pathname;
 
-  if ((!token && !user) && currentPath === '/user') {
+  if (!token && !user) {
     dispatch(logoutAndRedirect(navigate));
 }
 };

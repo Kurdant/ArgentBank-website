@@ -6,7 +6,6 @@ import IconChat from '../../../assets/icon-chat.png'
 import IconMoney from '../../../assets/icon-money.png'
 import IconSecurity from '../../../assets/icon-security.png'
 import Footer from '../../composants/footer/footer.js';
-import { checkAuth } from '../../../ReduxToolkit/auth.js';
 
 
 function Home() {

@@ -3,17 +3,13 @@ import argentBankLogo from '../../../assets/argentBankLogo.png';
 import { React, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
-import { checkAuth, logoutAndRedirect } from '../../../ReduxToolkit/auth';
+import { logoutAndRedirect } from '../../../ReduxToolkit/auth';
 
 export function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
   const userName = useSelector((state) => state.user.userName);
-
-  useEffect(() => {
-    checkAuth(dispatch, navigate);
-  }, [dispatch, navigate]);
 
   const handleLogout = () => {
     dispatch(logoutAndRedirect(navigate));
@@ -29,11 +25,11 @@ export function Header() {
       <div className='header-is-connected'>
         {isAuthenticated ? (
           <>
-            <div className='Connected style_connect'><i className="fa-solid fa-circle-user"></i><Link to='/user'>{userName ? userName : 'User'}</Link></div>
-            <div className='SignOut style_connect' onClick={handleLogout}><i className="fa-solid fa-sign-out-alt"></i><p> Sign Out</p></div>
+            <div className='Connected style_connect'><i className="fa fa-user-circle"></i><Link to='/user'>{userName ? userName : 'User'}</Link></div>
+            <div className='SignOut style_connect' onClick={handleLogout}><i className="fa fa-sign-out"></i><p> Sign Out</p></div>
           </>
         ) : (
-          <div className='SignIn style_connect'><Link to='/sign-in'><i className="fa-solid fa-circle-user"></i>Sign In</Link></div>
+          <div className='SignIn style_connect'><Link to='/sign-in'><i className="fa fa-user-circle"></i>Sign In</Link></div>
         )}
       </div>
     </div>

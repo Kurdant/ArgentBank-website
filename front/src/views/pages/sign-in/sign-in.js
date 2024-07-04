@@ -7,12 +7,10 @@ import './sign-in.css'
 
 function SignIn() {
   return (
-    <div className="App">
-      <body>
+    <div className="App sign-in">
         <Header/>
-        <Form/>
+          <Form/>
         <Footer/>
-        </body>
     </div>
   );
 }
