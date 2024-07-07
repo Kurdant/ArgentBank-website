@@ -24,7 +24,6 @@
     justify-content: center;
     text-decoration: none;
     align-items: center;
-    margin-right: 0.5rem;
 }
 .style_connect p{
     font-weight: bold;
@@ -44,6 +43,7 @@
 #Header a {
     font-weight: bold;
     color: #2c3e50;
+    margin-right: 0.5rem;
 }
 .argent-bank-logo{
     width: 200px;

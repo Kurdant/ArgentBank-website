@@ -12,9 +12,18 @@
 }
 
 .username-form{
-    margin-bottom: 30px
+    margin-bottom: 2rem
 }
 
 .username-form h1{
     color: white !important;
+}
+
+.user-page{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }

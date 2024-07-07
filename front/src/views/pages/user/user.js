@@ -77,18 +77,18 @@ function User() {
     },
     {
       money: "$10,928.42",
-      uppertexte: "Argent Bank Checking (x8349)",
+      uppertexte: "Argent Bank Savings (x6712)",
       balance: "Available Balance",
     },
     {
       money: "$184.30",
-      uppertexte: "Argent Bank Savings (x6712)",
+      uppertexte: "Argent Bank Credit Card (x8349)",
       balance: "Current Balance",
     }
   ];
 
   return (
-  <body>
+    <div className='user-page'>
     <div className="bg-dark">
       <Header />
       <div className='username-form'>
@@ -106,7 +106,7 @@ function User() {
         ))}
     </div>
     <Footer />
-  </body>
+  </div>
   );
 }
 

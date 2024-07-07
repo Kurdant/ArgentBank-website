@@ -1,6 +1,6 @@
 import '../header/header.css';
 import argentBankLogo from '../../../assets/argentBankLogo.png';
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import { logoutAndRedirect } from '../../../ReduxToolkit/auth';

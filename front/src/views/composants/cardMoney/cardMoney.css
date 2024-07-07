@@ -49,7 +49,6 @@
   @media (min-width: 720px) {
     .account-content-wrapper.cta {
       flex: 0 !important;
-      margin-top: 1rem;
     }
   }
 
