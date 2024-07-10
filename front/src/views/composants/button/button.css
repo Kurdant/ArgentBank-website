@@ -7,7 +7,14 @@
     white-space: nowrap;
 }
 
+
 .-big{
     font-size: 1.1rem;
-    width: 200px;
+
+    width: 100%
   }
+@media (min-width: 920px) {
+    .-big{
+        width: 200px !important;
+      }
+}
