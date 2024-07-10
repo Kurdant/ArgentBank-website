@@ -30,7 +30,6 @@ function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(''); 
     try {
       const response = await axios.post('http://localhost:3001/api/v1/user/login', {
         email: email,

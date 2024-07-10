@@ -16,6 +16,7 @@ function User() {
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
   const firstName = useSelector((state) => state.user.userName);
+  const lastName = useSelector((state) => state.user.lastName);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -92,7 +93,7 @@ function User() {
     <div className="bg-dark">
       <Header />
       <div className='username-form'>
-        <h1>Welcome back<br />{firstName ? firstName : 'User'}</h1>
+        <h1>Welcome back<br />{firstName ? firstName : 'User'} {lastName ? lastName : 'User'} !</h1>
       <Button text='Edit Name' onClick={editName} />
       </div>
       {showModal && <UsernameForm addPerson={addPerson} onClose={closeModal} />}
