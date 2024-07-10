@@ -19,8 +19,8 @@ function User() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      console.log("vous êtes authentifié !")
+    if (!isAuthenticated) {
+      navigate("/");
     }
   }, [isAuthenticated, navigate]);
 
