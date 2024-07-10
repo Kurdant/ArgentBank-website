@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { setUser } from '../../../ReduxToolkit/userSlice.js';
-import { checkAuth } from '../../../ReduxToolkit/auth.js';
 import UsernameForm from '../../composants/username-form/username-form';
 import Header from '../../composants/header/header.js';
 import Footer from '../../composants/footer/footer.js';
@@ -20,8 +19,10 @@ function User() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    checkAuth(dispatch, navigate);
-  }, [isAuthenticated, dispatch, navigate]);
+    if (isAuthenticated) {
+      navigate("/user");
+    }
+  }, [isAuthenticated, navigate]);
 
   const token = sessionStorage.getItem('token');
 
