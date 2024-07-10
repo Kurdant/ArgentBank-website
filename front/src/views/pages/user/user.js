@@ -20,7 +20,7 @@ function User() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/user");
+      console.log("vous êtes authentifié !")
     }
   }, [isAuthenticated, navigate]);
 
