@@ -1,0 +1,342 @@
+openapi: 3.0.3
+info:
+  title: Argent Bank API
+  description: >-
+    API documentation for Argent Bank. This API provides access to user transaction information.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://api.argentbank.com/v1
+tags:
+  - name: transactions
+    description: Get all the transactions
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /accounts/{id}:
+    get:
+      tags: 
+        - accounts
+      summary: Get accounts
+      description: Get all the accounts with transactions id in it
+      operationId: getAccountInfo
+      parameters:
+        - name: token
+          in: header
+          required: true
+          description: Need token
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AccountsInfo'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /transactions/{id}:
+    get:
+      tags:
+        - transactions
+      summary: Get a transaction by ID
+      description: Retrieve a specific transaction by its ID.
+      operationId: getTransactionById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction to retrieve
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: true
+          description: Token d'authentification
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transaction retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: Transaction not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /transactions:
+    post:
+      tags:
+        - transactions
+      summary: Create a new transaction
+      description: Add a new transaction.
+      operationId: createTransaction
+      parameters:
+        - name: token
+          in: header
+          required: true
+          description: Need token
+          schema:
+            type: string
+      requestBody:
+        description: Transaction to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostTransaction'
+      responses:
+        '200':
+          description: Transaction created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllTransaction'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /editTransaction/{id}:
+    put:
+      tags:
+        - transactions
+      summary: Update transaction information
+      description: Update the transaction informations.
+      operationId: updateTransactionInfo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction to update
+          schema:
+            type: string
+      requestBody:
+        description: Transaction information to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTransactionInfo'
+      responses:
+        '200':
+          description: Transaction updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /transaction/{id}:
+    delete:
+      tags:
+        - transactions
+      summary: Delete category and note from transaction
+      description: Delete the category and note fields from a specific transaction.
+      operationId: deleteTransactionFields
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction to update
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: true
+          description: Token d'authentification
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transaction fields deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Transaction not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+components:
+  schemas:
+    AccountsInfo:
+      type: object
+      properties:
+        transactionName:
+          type: string
+          example: "Argent Bank Checking (x3448)"
+        balance:
+          type: number
+          format: float
+          example: 48098.43
+        currency:
+          type: string
+          example: "USD"
+        id:
+          type: string
+          example: "1"
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Error500:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Success:
+      type: object
+      properties:
+        code:
+          type: number
+          format: "200"
+        message:
+          type: string
+    PostTransaction:
+      type: object
+      properties:
+        token:
+          type: string
+          example: "token"
+        id:
+          type: string
+          example: "1"
+    GetAllTransaction:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "01"
+        date:
+          type: string
+          example: "24/05/24"
+        description:
+          type: string
+          example: "Golden Sun Bakery"
+        amount:
+          type: number
+          example: 8
+        balance:
+          type: number
+          example: 298.00
+        currency:
+          type: string
+          example: dollars
+        transaction-type:
+          type: string
+          example: "Electronic"
+        category:
+          type: string
+          example: "food"
+        note:
+          type: string
+          example: "lorem Ipsum"
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+        description:
+          type: string
+        amount:
+          type: number
+        balance:
+          type: number
+        currency:
+          type: string
+        transaction-type:
+          type: string
+        category:
+          type: string
+        note:
+          type: string
+    UpdateTransactionInfo:
+      type: object
+      properties:
+        token:
+          type: string
+          example: "token"
+        category:
+          type: string
+          example: "string"
+        note:
+          type: string
+          example: "string"
